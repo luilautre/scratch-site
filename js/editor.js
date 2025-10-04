@@ -25471,7 +25471,7 @@ class AudioSelector extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
       distanceThreshold: 0
     });
   }
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const {
       trimStart,
       trimEnd
@@ -27653,7 +27653,7 @@ class CostumeTab extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component 
       };
     }
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {
       editingTarget,
       sprites,
@@ -29690,7 +29690,7 @@ class MonitorList extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component
       key: 0
     };
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     // TW: When stage size changes, we'll force all monitors to re-render completely
     // This is important because the VM moves monitors after resize to preserve locations but
     // Scratch's monitor layout logic is very complex and it won't notice that
@@ -31371,7 +31371,7 @@ class SliderMonitor extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Compone
       value: props.value
     };
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.state.value !== nextProps.value) {
       this.setState({
         value: nextProps.value
@@ -31576,7 +31576,7 @@ class SoundEditor extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component
     this.audioBufferPlayer = new _lib_audio_audio_buffer_player_js__WEBPACK_IMPORTED_MODULE_9__["default"](this.props.samples, this.props.sampleRate);
     document.addEventListener('keydown', this.handleKeyPress);
   }
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (newProps.soundId !== this.props.soundId) {
       // A different sound has been selected
       this.redoStack = [];
@@ -32360,7 +32360,7 @@ class SoundTab extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
       selectedSoundIndex: 0
     };
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {
       editingTarget,
       sprites,
@@ -35287,7 +35287,7 @@ class TWRestorePointManager extends react__WEBPACK_IMPORTED_MODULE_0___default.a
     _lib_tw_restore_point_api__WEBPACK_IMPORTED_MODULE_10__["default"].deleteLegacyRestorePoint();
     this.props.vm.on('PROJECT_CHANGED', this.handleProjectChanged);
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.isModalVisible && !this.props.isModalVisible) {
       this.refreshState();
     } else if (!nextProps.isModalVisible && this.props.isModalVisible) {
@@ -38680,7 +38680,7 @@ const cloudManagerHOC = function cloudManagerHOC(WrappedComponent) {
         this.connectToCloud();
       }
     }
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
       if (this.props.reduxCloudHost !== nextProps.cloudHost) {
         this.props.onSetReduxCloudHost(nextProps.cloudHost);
       }
@@ -39779,7 +39779,7 @@ const DropAreaHOC = function DropAreaHOC(dragTypes) {
         this.ref = null;
         this.containerBox = null;
       }
-      componentWillReceiveProps(newProps) {
+      UNSAFE_componentWillReceiveProps(newProps) {
         // If `dragging` becomes true, record the drop area rectangle
         if (newProps.dragInfo.dragging && !this.props.dragInfo.dragging) {
           this.dropAreaRect = this.ref && this.ref.getBoundingClientRect();
@@ -42892,7 +42892,7 @@ const ProjectSaverHOC = function ProjectSaverHOC(WrappedComponent) {
       super(props);
       lodash_bindall__WEBPACK_IMPORTED_MODULE_0___default()(this, ['getProjectThumbnail', 'leavePageConfirm', 'tryToAutoSave']);
     }
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       if (typeof window === 'object') {
         // Note: it might be better to use a listener instead of assigning onbeforeunload;
         // but then it'd be hard to turn this listening off in our tests
@@ -43906,7 +43906,7 @@ const SortableHOC = function SortableHOC(WrappedComponent) {
       this.ref = null;
       this.containerBox = null;
     }
-    componentWillReceiveProps(newProps) {
+    UNSAFE_componentWillReceiveProps(newProps) {
       if (newProps.dragInfo.dragging && !this.props.dragInfo.dragging) {
         // Drag just started, snapshot the sorted bounding boxes for sortables.
         this.boxes = this.sortableRefs.map(el => el && el.getBoundingClientRect());
