@@ -11425,6 +11425,16 @@ MenuItemTooltip.propTypes = {
   id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
   isRtl: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool
 };
+const handleClickSaveToLocal = () => {
+  try {
+    const projectJson = vm.toJSON(); // ou this.props.vm si classe
+    localStorage.setItem('scratchProject', projectJson);
+    alert('Projet sauvegardé dans le navigateur !');
+  } catch (e) {
+    console.error(e);
+    alert('Erreur lors de la sauvegarde dans le navigateur.');
+  }
+};
 const AboutButton = props => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_button_button_jsx__WEBPACK_IMPORTED_MODULE_10__["default"], {
   className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_menu_bar_css__WEBPACK_IMPORTED_MODULE_38___default.a.menuBarItem, _menu_bar_css__WEBPACK_IMPORTED_MODULE_38___default.a.hoverable),
   iconClassName: _menu_bar_css__WEBPACK_IMPORTED_MODULE_38___default.a.aboutIcon,
@@ -11803,6 +11813,11 @@ class MenuBar extends react__WEBPACK_IMPORTED_MODULE_7___default.a.Component {
     }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_3__["FormattedMessage"], {
       defaultMessage: "Save to your computer",
       id: "gui.menuBar.downloadToComputer"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_menu_menu_jsx__WEBPACK_IMPORTED_MODULE_19__["MenuItem"], {
+      onClick: handleClickSaveToLocal
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_3__["FormattedMessage"], {
+      defaultMessage: "Save to browser",
+      id: "menuBar.saveToBrowser"
     })))))), this.props.onClickPackager && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_menu_menu_jsx__WEBPACK_IMPORTED_MODULE_19__["MenuSection"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_menu_menu_jsx__WEBPACK_IMPORTED_MODULE_19__["MenuItem"], {
       onClick: this.handleClickPackager
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_3__["FormattedMessage"], {
